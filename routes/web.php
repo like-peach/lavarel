@@ -15,5 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//安全与简单
-Route::get('/wh/login/{id?}/{email?}/{password?}/','Ja\LoginController@index');
+//登录
+Route::any('/wh/login','Wh\LoginController@login');
+//判断登录
+Route::any('/wh/index/{name?}{pwd?}','Wh\LoginController@index');
+//登出
+Route::any('/wh/loginOut','Wh\LoginController@loginOut');
